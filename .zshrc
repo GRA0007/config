@@ -64,8 +64,15 @@ simulator () {
 }
 
 # Version managers
-eval "$(fnm env --use-on-cd)"
-eval "$(mise activate)"
+if command -v fnm &>/dev/null
+then
+  eval "$(fnm env --use-on-cd)"
+fi
+
+if command -v mise &>/dev/null
+then
+  eval "$(mise activate)"
+fi
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
@@ -73,8 +80,11 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export GPG_TTY=$(tty)
 
 # yarn
-export PATH="$PATH:`yarn global bin`"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+if command -v yarn &>/dev/null
+then
+  export PATH="$PATH:`yarn global bin`"
+  export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+fi
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
