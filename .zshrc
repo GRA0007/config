@@ -74,7 +74,19 @@ then
   eval "$(mise activate)"
 fi
 
+# homebrew
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# adb
+export ANDROID_HOME="/Users/$USER/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# go
+export PATH="$PATH:$HOME/go/bin"
+
+# gcloud
+if [ -f '/Users/benji/.gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/benji/.gcloud/google-cloud-sdk/path.zsh.inc'; fi
 
 # gpg
 export GPG_TTY=$(tty)
