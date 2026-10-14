@@ -103,9 +103,9 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/benji/Library/pnpm"
+export PNPM_HOME='/Users/benji/Library/pnpm'
 case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
+  ":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
